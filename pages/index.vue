@@ -300,13 +300,13 @@
               <label for="name" class="block text-black mb-2 font-medium">稱呼</label>
               <input type="text" id="name"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="Your name" />
+                placeholder="稱呼" />
             </div>
             <div>
               <label for="email" class="block text-black mb-2 font-medium">Email</label>
               <input type="email" id="email"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="Your email" />
+                placeholder="Email" />
             </div>
             <div>
               <label for="subject" class="block text-black mb-2 font-medium">主題</label>

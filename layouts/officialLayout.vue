@@ -5,8 +5,8 @@
       <div class="container mx-auto flex justify-between items-center">
         <a href="/">
           <div class="flex items-center space-x-2 cursor-pointer">
-            <Icon name="gcc:gcc" />
-            <span class="text-2xl font-bold text-primary">古德文創</span>
+            <Icon name="gcc:gcc" size="32" />
+            <Icon name="gcc:gcc-text" size="36" />
           </div>
         </a>
         <div class="hidden md:flex space-x-8">
@@ -98,7 +98,7 @@
 
         <div class="border-t border-gray-800 mt-12 pt-8 text-center">
           <p class="text-gray-400">
-            © 2023 Cultura. All rights reserved.
+            © 2025 GCC古德文創. All rights reserved.
           </p>
         </div>
       </div>
@@ -108,7 +108,6 @@
 <script lang="ts">
 import { buildDefineComponentSetup } from "~/utils/internal";
 import { defineComponent, onMounted, ref, watch } from "vue";
-import type { NuxtError } from "#app";
 
 export default defineComponent({
   components: {},
