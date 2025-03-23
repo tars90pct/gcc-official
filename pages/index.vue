@@ -3,8 +3,7 @@
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0">
-          <Icon name="gcc:gcc-text" size="24" />
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">看見好文化，發揮好創意
+          <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">看見好文化，發揮好創意
           </h1>
           <p class="text-xl text-gray-300 mb-8">
             文創無界限，營造跨界共利生態圈，攜手古德文創共創多贏未來！
@@ -22,6 +21,111 @@
         </div>
         <div class="md:w-1/2 flex items-center justify-center">
           <img src="/pages/gcc.jpeg" alt="Event" class="rounded-lg shadow-xl max-w-[400px] h-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="py-16 px-4 bg-primary">
+    <div class="container mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">焦點盛事</h2>
+        <p class="text-xl text-gray-800 max-w-3xl mx-auto">
+          探索我們引以為傲的文化經典與卓越體驗精選
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
+              <span class="text-gray-500 text-sm">6月15-18, 2023</span>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-2">光影迷宮特展</h3>
+            <p class="text-gray-600 mb-4">
+              用光影組成的迷宮，你敢不敢跨越那道牆壁？
+            </p>
+            <div class="flex items-center text-black font-medium">
+              <span>詳情介紹</span>
+              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
+              <span class="text-gray-500 text-sm">12月5-7, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-2">周Ｏ倫下水道演唱會</h3>
+            <p class="text-gray-600 mb-4">
+              傳奇巨星周Ｏ倫十年一聚，下水道收音不好，就算是一生一次也絕對不要嘗試。
+            </p>
+            <div class="flex items-center text-black font-medium">
+              <span>詳情介紹</span>
+              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
+              <span class="text-gray-500 text-sm">八月 10-20, 2023</span>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-2">江西男鐵籠挑戰賽</h3>
+            <p class="text-gray-600 mb-4">
+              我們重金從遙遠國度請來的知名摔角手江西男，這次開放一般民眾挑戰他的頭銜--江西之王。
+            </p>
+            <div class="flex items-center text-black font-medium">
+              <span>詳情介紹</span>
+              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="influencers" class="py-16 bg-black text-white px-4">
+    <div class="container mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">合作藝人</h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          我們與文化領域的關鍵影響力者攜手合作，為您的訊息賦能擴聲，深化品牌影響並拓展多元受眾觸及。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center" v-for="i of 4">
+          <img src="/pages/motherofd.jpeg" alt="Influencer 1"
+            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-primary" />
+          <h3 class="text-lg font-bold mb-1">丹妮莉絲·坦格利安</h3>
+          <p class="text-primary mb-3">不焚者、彌林女王、安達爾人和先民的女王、七國統治者與全境守護者、草原上的卡麗熙、打碎鐐銬者以及龍之母</p>
+          <p class="text-gray-400 text-sm mb-4">500K+ Followers</p>
+          <div class="flex justify-center space-x-3">
+            <a href="#" class="text-gray-400 hover:text-primary transition">
+              <Icon name="mdi:facebook" class="h-5 w-5" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition">
+              <icon name="mdi:instagram" class="h-5 w-5" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition">
+              <icon name="mdi:youtube" class="h-5 w-5" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition">
+              <icon name="mdi:twitch" class="h-5 w-5" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition">
+              <icon name="pajamas:twitter" class="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -108,98 +212,6 @@
               <span>形象危機預防系統</span>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="events" class="py-16 px-4 bg-primary">
-    <div class="container mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">焦點盛事</h2>
-        <p class="text-xl text-gray-800 max-w-3xl mx-auto">
-          探索我們引以為傲的文化經典與卓越體驗精選
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">6月15-18, 2023</span>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-2">光影迷宮特展</h3>
-            <p class="text-gray-600 mb-4">
-              用光影組成的迷宮，你敢不敢跨越那道牆壁？
-            </p>
-            <div class="flex items-center text-black font-medium">
-              <span>詳情介紹</span>
-              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">12月5-7, 2024</span>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-2">周Ｏ倫下水道演唱會</h3>
-            <p class="text-gray-600 mb-4">
-              傳奇巨星周Ｏ倫十年一聚，下水道收音不好，就算是一生一次也絕對不要嘗試。
-            </p>
-            <div class="flex items-center text-black font-medium">
-              <span>詳情介紹</span>
-              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">八月 10-20, 2023</span>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-2">江西男鐵籠挑戰賽</h3>
-            <p class="text-gray-600 mb-4">
-              我們重金從遙遠國度請來的知名摔角手江西男，這次開放一般民眾挑戰他的頭銜--江西之王。
-            </p>
-            <div class="flex items-center text-black font-medium">
-              <span>詳情介紹</span>
-              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="influencers" class="py-16 bg-black text-white px-4">
-    <div class="container mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">合作網紅</h2>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          我們與文化領域的關鍵影響力者攜手合作，為您的訊息賦能擴聲，深化品牌影響並拓展多元受眾觸及。
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center" v-for="i of 4">
-          <img src="/pages/motherofd.jpeg" alt="Influencer 1"
-            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-primary" />
-          <h3 class="text-lg font-bold mb-1">丹妮莉絲·坦格利安</h3>
-          <p class="text-primary mb-3">不焚者、彌林女王、安達爾人和先民的女王、七國統治者與全境守護者、草原上的卡麗熙、打碎鐐銬者以及龍之母</p>
-          <p class="text-gray-400 text-sm mb-4">500K+ Followers</p>
-          <div class="flex justify-center space-x-3">
-            <Icon name="mdi:instagram" class="h-5 w-5 text-gray-400 hover:text-primary cursor-pointer" />
-            <Icon name="mdi:youtube" class="h-5 w-5 text-gray-400 hover:text-primary cursor-pointer" />
-          </div>
         </div>
       </div>
     </div>
@@ -338,7 +350,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold mb-1">地址</h4>
-                  <p class="text-gray-300">臺北市信義區松仁路221巷45號116樓</p>
+                  <p class="text-gray-300">臺北市大同區南京西路57號5樓之一</p>
                 </div>
               </div>
 
@@ -358,7 +370,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold mb-1">Email</h4>
-                  <p class="text-gray-300">info@gcc.com</p>
+                  <p class="text-gray-300">sales@goodcc.com.tw</p>
                 </div>
               </div>
 
@@ -376,11 +388,20 @@
             <div class="mt-8">
               <h4 class="font-bold mb-3">Follow Us</h4>
               <div class="flex space-x-4">
-                <a href="#" class="bg-gray-800 hover:bg-primary p-3 rounded-full transition">
-                  <Icon name="mdi:instagram" class="h-5 w-5 text-gray-400 hover:text-primary cursor-pointer" />
+                <a href="#" class="text-gray-400 hover:text-primary transition">
+                  <Icon name="mdi:facebook" class="h-5 w-5" />
                 </a>
-                <a href="#" class="bg-gray-800 hover:bg-primary p-3 rounded-full transition">
-                  <Icon name="mdi:youtube" class="h-5 w-5 text-gray-400 hover:text-primary cursor-pointer" />
+                <a href="#" class="text-gray-400 hover:text-primary transition">
+                  <icon name="mdi:instagram" class="h-5 w-5" />
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition">
+                  <icon name="mdi:youtube" class="h-5 w-5" />
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition">
+                  <icon name="mdi:twitch" class="h-5 w-5" />
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition">
+                  <icon name="pajamas:twitter" class="h-5 w-5" />
                 </a>
               </div>
             </div>
