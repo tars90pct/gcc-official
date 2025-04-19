@@ -41,7 +41,8 @@
         }"
           class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-[480px] max-h-[480px] min-h-[480px] cursor-pointer"
           v-for="news of newsList" :key="news.id">
-          <img :src="news.images?.[0] || '/pages/logo.png'" alt="Art Festival" class="w-full h-48 object-cover" />
+          <img :src="news.images?.[0] || '/gcc-official/pages/logo.png'" :alt="news.title"
+            class="w-full h-48 object-cover" />
           <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center mb-2">
               <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
