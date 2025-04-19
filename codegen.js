@@ -102,7 +102,7 @@ async function ProcessNews() {
         reject(err);
       });
   });
-  const instanceDataPath = path.resolve(process.cwd(), path.join("public", "news", "data"));
+  const instanceDataPath = path.resolve(process.cwd(), path.join("public", "news-static", "data"));
   const newsPromise = news.map(async (element, index) => {
     element["id"] = index;
     const imagesRaw = element.images.trim();
@@ -110,10 +110,10 @@ async function ProcessNews() {
     if (imagesRaw) {
       const downloadPromises = imagesRaw.split("\n").map(async (viewUrl, imgIdx) => {
         const driveId = getDriveFileIdFromUrl(viewUrl);
-        const imageFolder = path.resolve(process.cwd(), path.join("public", "news", "images"));
+        const imageFolder = path.resolve(process.cwd(), path.join("public", "news-static", "images"));
         const fileName = `${imageFolder}/${index}-${imgIdx}`;
         const extentsion = await downloadFileFromDrive(driveId, fileName);
-        return `/news/images/${index}-${imgIdx}${extentsion}`;
+        return `/news-static/images/${index}-${imgIdx}${extentsion}`;
       });
       const images = await Promise.all(downloadPromises);
       element["images"] = images;
@@ -126,7 +126,7 @@ async function ProcessNews() {
   });
   const newsFixed = await Promise.all(newsPromise);
   const newsGroup = chunkArray(newsFixed, 9);
-  const paginationPath = path.resolve(process.cwd(), path.join("public", "news", "pagination"));
+  const paginationPath = path.resolve(process.cwd(), path.join("public", "news-static", "pagination"));
   newsGroup.forEach(async (group, index) => {
     const fileName = `${index + 1}.json`;
     const filePath = path.join(paginationPath, fileName);

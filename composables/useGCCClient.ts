@@ -17,11 +17,11 @@ export class ApiListResponse<T> {
 
 export class GCCGlient {
   public async getNewsList(id: number): Promise<ApiListResponse<News>> {
-    const countJson = await $fetch(`/news/pagination/index.json`, {
+    const countJson = await $fetch(`/news-static/pagination/index.json`, {
       responseType: "text",
     });
     const count = JSON.parse(countJson as string);
-    return $fetch(`/news/pagination/${id}.json`, {
+    return $fetch(`/news-static/pagination/${id}.json`, {
       responseType: "text",
     }).then((resp) => {
       const response = new ApiListResponse<News>();
@@ -36,7 +36,7 @@ export class GCCGlient {
   }
 
   public getNews(id: number): Promise<ApiResponse<News>> {
-    return $fetch(`/news/data/${id}.json`, {
+    return $fetch(`/news-static/data/${id}.json`, {
       responseType: "text",
     }).then((resp) => {
       const response = new ApiResponse<News>();
