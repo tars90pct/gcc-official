@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="md:w-1/2 flex items-center justify-center">
-          <img src="/pages/gcc.jpeg" alt="Event" class="rounded-lg shadow-xl max-w-[400px] h-auto" />
+          <img src="/pages/logotext_y.gif" alt="Event" class="rounded-lg shadow-xl max-w-[400px] h-auto" />
         </div>
       </div>
     </div>
@@ -36,59 +36,35 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
+        <div @click="() => {
+          navigateTo(`/news/${news.id}`)
+        }"
+          class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-[480px] max-h-[480px] min-h-[480px] cursor-pointer"
+          v-for="news of newsList" :key="news.id">
+          <img :src="news.images?.[0] || '/pages/logo.png'" alt="Art Festival" class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center mb-2">
               <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">6月15-18, 2023</span>
+              <span class="text-gray-500 text-sm">{{ news.updatedAt }}</span>
             </div>
-            <h3 class="text-xl font-bold text-black mb-2">光影迷宮特展</h3>
-            <p class="text-gray-600 mb-4">
-              用光影組成的迷宮，你敢不敢跨越那道牆壁？
-            </p>
-            <div class="flex items-center text-black font-medium">
+            <h3 class="text-xl font-bold text-black mb-2">{{ news.title }}</h3>
+            <div class="flex-1">
+              <p class="text-gray-600 whitespace-pre-line line-clamp-4">
+                {{ news.trimDescription() }}
+              </p>
+            </div>
+            <div class="flex items-center text-black font-medium bg-white">
               <span>詳情介紹</span>
               <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
             </div>
           </div>
         </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">12月5-7, 2024</span>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-2">周Ｏ倫下水道演唱會</h3>
-            <p class="text-gray-600 mb-4">
-              傳奇巨星周Ｏ倫十年一聚，下水道收音不好，就算是一生一次也絕對不要嘗試。
-            </p>
-            <div class="flex items-center text-black font-medium">
-              <span>詳情介紹</span>
-              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg overflow-hidden shadow-md">
-          <img src="/pages/gcc.jpeg" alt="Art Festival" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <Icon name="solar:calendar-line-duotone" class="h-5 w-5 text-black mr-2" />
-              <span class="text-gray-500 text-sm">八月 10-20, 2023</span>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-2">江西男鐵籠挑戰賽</h3>
-            <p class="text-gray-600 mb-4">
-              我們重金從遙遠國度請來的知名摔角手江西男，這次開放一般民眾挑戰他的頭銜--江西之王。
-            </p>
-            <div class="flex items-center text-black font-medium">
-              <span>詳情介紹</span>
-              <Icon name="lsicon:right-outline" class="h-4 w-4 ml-1" />
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="mt-4">
+        <Pagination :page-query="newsPageQuery" @update:page="(page) => {
+          newsPageQuery.page = page;
+          methods.fetchNews()
+        }" :key="newsPageQuery.page" />
       </div>
     </div>
   </section>
@@ -217,85 +193,6 @@
     </div>
   </section>
 
-  <section class="py-16 px-4 bg-white">
-    <div class="container mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">要不要聽聽看我們客戶在說什麼</h2>
-        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-          聽聽與我們合作過的組織和品牌怎麼說。
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-black p-8 rounded-lg shadow-md text-white">
-          <div class="flex items-center mb-6">
-            <div class="text-primary">
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-            </div>
-          </div>
-          <p class="text-gray-300 mb-6 italic">
-            "與古德文創合作是我們年度聲優展的關鍵轉折點。他們在活動策劃與影響者拓展上的專業能力，成功讓參與人數翻倍。"
-          </p>
-          <div class="flex items-center">
-            <img src="/pages/motherofd.jpeg" alt="Client" class="w-12 h-12 rounded-full mr-4 border-2 border-primary" />
-            <div>
-              <h4 class="font-bold">石內埔</h4>
-              <p class="text-gray-400 text-sm">執行總監, 特務機構</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-black p-8 rounded-lg shadow-md text-white">
-          <div class="flex items-center mb-6">
-            <div class="text-primary">
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-            </div>
-          </div>
-          <p class="text-gray-300 mb-6 italic">
-            "古德文創團隊擁有令人驚嘆的影響力人脈網絡，這些夥伴真正關心文化發展。他們協助我們建立了與觀眾深度共鳴的真誠合作關係。"
-          </p>
-          <div class="flex items-center">
-            <img src="/pages/motherofd.jpeg" alt="Client" class="w-12 h-12 rounded-full mr-4 border-2 border-primary" />
-            <div>
-              <h4 class="font-bold">麥米奈</h4>
-              <p class="text-gray-400 text-sm">教授, 霍格華滋</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-black p-8 rounded-lg shadow-md text-white">
-          <div class="flex items-center mb-6">
-            <div class="text-primary">
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-              <Icon name="ic:round-star" class="h-5 w-5 inline-block" />
-            </div>
-          </div>
-          <p class="text-gray-300 mb-6 italic">
-            "從概念構思到實際執行，古德文創打造了一場超越期待的卓越文化展覽。他們對細節的執著與創意手法，成就了無可取代的差異化成果。"
-          </p>
-          <div class="flex items-center">
-            <img src="/pages/motherofd.jpeg" alt="Client" class="w-12 h-12 rounded-full mr-4 border-2 border-primary" />
-            <div>
-              <h4 class="font-bold">格海河</h4>
-              <p class="text-gray-400 text-sm">飼育員, 魔獸爭霸講師</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="py-16 bg-primary px-4">
     <div class="container mx-auto">
       <div class="text-center mb-16">
@@ -304,41 +201,7 @@
           準備好打造一場令人難忘的文化體驗了嗎？請聯繫我們，一起討論您的專案。
         </p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
-          <form class="space-y-6">
-            <div>
-              <label for="name" class="block text-black mb-2 font-medium">稱呼</label>
-              <input type="text" id="name"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="稱呼" />
-            </div>
-            <div>
-              <label for="email" class="block text-black mb-2 font-medium">Email</label>
-              <input type="email" id="email"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="Email" />
-            </div>
-            <div>
-              <label for="subject" class="block text-black mb-2 font-medium">主題</label>
-              <input type="text" id="subject"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="主題" />
-            </div>
-            <div>
-              <label for="message" class="block text-black mb-2 font-medium">內容</label>
-              <textarea id="message" rows="5"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                placeholder="您想講的話"></textarea>
-            </div>
-            <button type="submit"
-              class="bg-black hover:bg-gray-900 text-white font-medium py-3 px-6 rounded-lg transition w-full">
-              送出
-            </button>
-          </form>
-        </div>
-
+      <div class="grid grid-cols-1 gap-12">
         <div>
           <div class="bg-black p-8 rounded-lg shadow-md h-full text-white">
             <h3 class="text-2xl font-bold mb-6">聯絡資訊</h3>
@@ -415,6 +278,9 @@
 <script lang="ts">
 import { buildDefineComponentSetup } from "~/utils/internal";
 import { defineComponent, onMounted, ref, watch } from "vue";
+import { useGCCClient } from "#imports";
+import type { News } from "~/types/news";
+import { PageQuery } from "../types/clients";
 
 
 export default defineComponent({
@@ -425,13 +291,29 @@ export default defineComponent({
     definePageMeta({
       layout: 'official-layout',
     });
+    const client = useGCCClient()
+    const newsList = ref<News[]>([])
+    const newsPageQuery = reactive<PageQuery>(PageQuery.of({}))
+    const fetchNews = () => {
+      client.getNewsList(newsPageQuery.page).then((resp) => {
+        newsList.value = resp.data
+        newsPageQuery.total = resp.count
+      });
+    }
+    onMounted(() => {
+      fetchNews()
+    })
+
     return buildDefineComponentSetup(
       {
         data: {},
-        methods: {},
+        methods: { fetchNews },
         stores: {},
       },
-      {}
+      {
+        newsList,
+        newsPageQuery
+      }
     );
   },
 });
