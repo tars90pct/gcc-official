@@ -54,6 +54,7 @@ async function downloadFileFromDrive(id, fileNamePrefix) {
 
     return new Promise((resolve, reject) => {
       writer.on("finish", () => {
+        console.log("downloaded");
         resolve(extentsion);
       });
 
@@ -138,3 +139,4 @@ async function ProcessNews() {
 }
 
 await ProcessNews();
+console.log("ProcessNews");
