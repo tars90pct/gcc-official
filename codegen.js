@@ -5,6 +5,9 @@ import { fileURLToPath } from "url";
 import axios from "axios";
 import csvParser from "csv-parser";
 
+const EnvForImageUrl = process.env.NODE_ENV === "production" ? "/gcc-official" : "";
+console.log(EnvForImageUrl);
+
 function chunkArray(array, chunkSize) {
   if (!Array.isArray(array) || chunkSize <= 0) {
     return [];
@@ -110,10 +113,13 @@ async function ProcessNews() {
     if (imagesRaw) {
       const downloadPromises = imagesRaw.split("\n").map(async (viewUrl, imgIdx) => {
         const driveId = getDriveFileIdFromUrl(viewUrl);
-        const imageFolder = path.resolve(process.cwd(), path.join("public", "news-static", "images"));
+        const imageFolder = path.resolve(
+          process.cwd(),
+          path.join("public", "news-static", "images")
+        );
         const fileName = `${imageFolder}/${index}-${imgIdx}`;
         const extentsion = await downloadFileFromDrive(driveId, fileName);
-        return `/news-static/images/${index}-${imgIdx}${extentsion}`;
+        return `${EnvForImageUrl}/news-static/images/${index}-${imgIdx}${extentsion}`;
       });
       const images = await Promise.all(downloadPromises);
       element["images"] = images;
@@ -126,7 +132,10 @@ async function ProcessNews() {
   });
   const newsFixed = await Promise.all(newsPromise);
   const newsGroup = chunkArray(newsFixed, 9);
-  const paginationPath = path.resolve(process.cwd(), path.join("public", "news-static", "pagination"));
+  const paginationPath = path.resolve(
+    process.cwd(),
+    path.join("public", "news-static", "pagination")
+  );
   newsGroup.forEach(async (group, index) => {
     const fileName = `${index + 1}.json`;
     const filePath = path.join(paginationPath, fileName);
