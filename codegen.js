@@ -48,6 +48,7 @@ async function downloadFileFromDrive(id, fileNamePrefix) {
   const extentsion = getExtensionFromContentDisposition(response.headers["content-disposition"]);
   if (extentsion) {
     const output_path = `${fileNamePrefix}${extentsion}`;
+    console.log(output_path);
     const writer = fs.createWriteStream(output_path);
     response.data.pipe(writer);
 
