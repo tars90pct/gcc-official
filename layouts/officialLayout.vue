@@ -5,7 +5,7 @@
       <div class="container mx-auto flex justify-between items-center">
         <a href="/">
           <div class="flex items-center space-x-2 cursor-pointer">
-            <div class="text-primary text-xl">古德文創</div>
+            <img src="/pages/logotext_y.gif" alt="Event" class="rounded-lg shadow-xl max-h-8" />
           </div>
         </a>
         <div class="hidden md:flex space-x-8">
@@ -39,7 +39,6 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div class="flex items-center gap-2">
-              <Icon name="gcc:gcc" size="36" />
               <h2 class="text-primary font-semibold text-4xl">古德文創</h2>
             </div>
             <p class="text-gray-400 mb-6">
@@ -64,27 +63,6 @@
             </div>
           </div>
           <div>
-
-          </div>
-          <div>
-            <h4 class="font-bold text-primary mb-4">快速連結</h4>
-            <ul class="space-y-2">
-              <li><a href="/#events" class="text-gray-400 hover:text-white transition">新聞</a></li>
-              <li><a href="/#influencers" class="text-gray-400 hover:text-white transition">合作藝人</a></li>
-              <li><a href="/#services" class="text-gray-400 hover:text-white transition">服務項目</a></li>
-              <li><a href="/#contact" class="text-gray-400 hover:text-white transition">聯絡我們</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-bold text-primary mb-4">服務項目</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition">活動策畫</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition">KOL行銷</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition">文化策展</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition">社群凝聚</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition">品牌合作</a></li>
-            </ul>
           </div>
         </div>
 

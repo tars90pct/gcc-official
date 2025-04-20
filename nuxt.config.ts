@@ -4,8 +4,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
   app: {
-    baseURL: "/gcc-official/",
+    // baseURL: "/gcc-official/",
     buildAssetsDir: "assets",
+  },
+  nitro: {
+    output: {
+      publicDir: "dist",
+    },
   },
   ssr: false,
   icon: {

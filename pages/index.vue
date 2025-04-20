@@ -8,7 +8,7 @@
           <p class="text-xl text-gray-300 mb-8">
             文創無界限，營造跨界共利生態圈，攜手古德文創共創多贏未來！
           </p>
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <!-- <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a href="#contact"
               class="bg-primary hover:bg-[#e6ca4c] text-black font-medium py-3 px-6 rounded-lg transition text-center">
               聯絡我們
@@ -17,7 +17,7 @@
               class="border border-primary text-primary hover:bg-primary hover:text-black font-medium py-3 px-6 rounded-lg transition text-center">
               服務內容
             </a>
-          </div>
+          </div> -->
         </div>
         <div class="md:w-1/2 flex items-center justify-center">
           <img src="/pages/logotext_y.gif" alt="Event" class="rounded-lg shadow-xl max-w-[400px] h-auto" />
@@ -189,87 +189,6 @@
               <span>形象危機預防系統</span>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-16 bg-primary px-4">
-    <div class="container mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">保持聯絡</h2>
-        <p class="text-xl text-gray-800 max-w-3xl mx-auto">
-          準備好打造一場令人難忘的文化體驗了嗎？請聯繫我們，一起討論您的專案。
-        </p>
-      </div>
-      <div class="grid grid-cols-1 gap-12">
-        <div>
-          <div class="bg-black p-8 rounded-lg shadow-md h-full text-white">
-            <h3 class="text-2xl font-bold mb-6">聯絡資訊</h3>
-
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="bg-primary p-3 rounded-full mr-4">
-                  <MapPinIcon class="h-6 w-6 text-black" />
-                </div>
-                <div>
-                  <h4 class="font-bold mb-1">地址</h4>
-                  <p class="text-gray-300">臺北市大同區南京西路57號5樓之一</p>
-                </div>
-              </div>
-
-              <div class="flex items-start">
-                <div class="bg-primary p-3 rounded-full mr-4">
-                  <PhoneIcon class="h-6 w-6 text-black" />
-                </div>
-                <div>
-                  <h4 class="font-bold mb-1">電話</h4>
-                  <p class="text-gray-300">0911-0010002</p>
-                </div>
-              </div>
-
-              <div class="flex items-start">
-                <div class="bg-primary p-3 rounded-full mr-4">
-                  <MailIcon class="h-6 w-6 text-black" />
-                </div>
-                <div>
-                  <h4 class="font-bold mb-1">Email</h4>
-                  <p class="text-gray-300">sales@goodcc.com.tw</p>
-                </div>
-              </div>
-
-              <div class="flex items-start">
-                <div class="bg-primary p-3 rounded-full mr-4">
-                  <ClockIcon class="h-6 w-6 text-black" />
-                </div>
-                <div>
-                  <h4 class="font-bold mb-1">上班時間</h4>
-                  <p class="text-gray-300">週一 - 週五: 9:00 AM - 6:00 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-8">
-              <h4 class="font-bold mb-3">Follow Us</h4>
-              <div class="flex space-x-4">
-                <a href="#" class="text-gray-400 hover:text-primary transition">
-                  <Icon name="mdi:facebook" class="h-5 w-5" />
-                </a>
-                <a href="#" class="text-gray-400 hover:text-primary transition">
-                  <icon name="mdi:instagram" class="h-5 w-5" />
-                </a>
-                <a href="#" class="text-gray-400 hover:text-primary transition">
-                  <icon name="mdi:youtube" class="h-5 w-5" />
-                </a>
-                <a href="#" class="text-gray-400 hover:text-primary transition">
-                  <icon name="mdi:twitch" class="h-5 w-5" />
-                </a>
-                <a href="#" class="text-gray-400 hover:text-primary transition">
-                  <icon name="pajamas:twitter" class="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
