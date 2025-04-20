@@ -5,8 +5,7 @@ import { fileURLToPath } from "url";
 import axios from "axios";
 import csvParser from "csv-parser";
 
-const EnvForImageUrl = process.env.NODE_ENV === "dev" ? "" : "/gcc-official";
-console.log(EnvForImageUrl);
+const EnvForImageUrl = "";
 
 function chunkArray(array, chunkSize) {
   if (!Array.isArray(array) || chunkSize <= 0) {
