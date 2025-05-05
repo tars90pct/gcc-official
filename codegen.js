@@ -47,6 +47,7 @@ async function downloadFileFromDrive(id, fileNamePrefix) {
     method: "GET",
     responseType: "stream", // Important: Get the response as a stream
   });
+
   const extentsion = getExtensionFromContentDisposition(response.headers["content-disposition"]);
   if (extentsion) {
     const output_path = `${fileNamePrefix}${extentsion}`;
@@ -95,6 +96,7 @@ async function ProcessNews() {
     readableStream
       .pipe(csvParser())
       .on("data", (data) => {
+        console.log(data);
         results.push(data);
       })
       .on("end", () => {
@@ -130,7 +132,7 @@ async function ProcessNews() {
     return element;
   });
   const newsFixed = await Promise.all(newsPromise);
-  const newsGroup = chunkArray(newsFixed, 9);
+  const newsGroup = chunkArray(newsFixed, 3);
   const paginationPath = path.resolve(
     process.cwd(),
     path.join("public", "news-static", "pagination")
@@ -144,7 +146,87 @@ async function ProcessNews() {
   const paginationIndexPath = path.join(paginationPath, "index.json");
   const paginationIndexData = JSON.stringify({ count: newsGroup.length }, null, 2);
   await fs.promises.writeFile(paginationIndexPath, paginationIndexData, "utf8");
+  console.log("ProcessNews");
+}
+
+async function ProcessInfluencers() {
+  const influencersGoogleShreadSheetUrl =
+    "https://docs.google.com/spreadsheets/d/1AGTK5Cu9qXK08EMHCV0mA5nmujcvl1bON7ts3E1wFU4/export?format=csv&gid=0";
+
+  const response = await axios.get(influencersGoogleShreadSheetUrl, {
+    responseType: "text",
+  });
+
+  const csvData = response.data;
+  const news = await new Promise((resolve, reject) => {
+    const results = [];
+    const readableStream = Readable.from(csvData);
+    readableStream
+      .pipe(csvParser())
+      .on("data", (data) => {
+        console.log(data);
+        results.push(data);
+      })
+      .on("end", () => {
+        resolve(results);
+      })
+      .on("error", (err) => {
+        reject(err);
+      });
+  });
+  const influencerFolder = "influencer-static";
+  const instanceDataPath = path.resolve(
+    process.cwd(),
+    path.join("public", influencerFolder, "data")
+  );
+  const newsPromise = news.map(async (element, index) => {
+    element["id"] = index;
+    const imagesRaw = element.images.trim();
+    element["images"] = [];
+    if (imagesRaw) {
+      const downloadPromises = imagesRaw.split("\n").map(async (viewUrl, imgIdx) => {
+        const driveId = getDriveFileIdFromUrl(viewUrl);
+        const imageFolder = path.resolve(
+          process.cwd(),
+          path.join("public", influencerFolder, "images")
+        );
+        const fileName = `${imageFolder}/${index}-${imgIdx}`;
+        const extentsion = await downloadFileFromDrive(driveId, fileName);
+        return `${EnvForImageUrl}/${influencerFolder}/images/${index}-${imgIdx}${extentsion}`;
+      });
+      const images = await Promise.all(downloadPromises);
+      element["images"] = images;
+    }
+    const fileName = `${index}.json`;
+    const filePath = path.join(instanceDataPath, fileName);
+    const jsonData = JSON.stringify(element, null, 2);
+    await fs.promises.writeFile(filePath, jsonData, "utf8");
+    return element;
+  });
+  const newsFixed = await Promise.all(newsPromise);
+  const newsGroup = chunkArray(newsFixed, 3);
+  const paginationPath = path.resolve(
+    process.cwd(),
+    path.join("public", influencerFolder, "pagination")
+  );
+
+  await fs.promises.writeFile(
+    `${paginationPath}/all.json`,
+    JSON.stringify(newsFixed, null, 2),
+    "utf8"
+  );
+
+  newsGroup.forEach(async (group, index) => {
+    const fileName = `${index + 1}.json`;
+    const filePath = path.join(paginationPath, fileName);
+    const jsonData = JSON.stringify(group, null, 2);
+    await fs.promises.writeFile(filePath, jsonData, "utf8");
+  });
+  const paginationIndexPath = path.join(paginationPath, "index.json");
+  const paginationIndexData = JSON.stringify({ count: newsGroup.length }, null, 2);
+  await fs.promises.writeFile(paginationIndexPath, paginationIndexData, "utf8");
+  console.log("ProcessInfluencers");
 }
 
 await ProcessNews();
-console.log("ProcessNews");
+await ProcessInfluencers();

@@ -9,10 +9,10 @@
           </div>
         </a>
         <div class="hidden md:flex space-x-8">
-          <a href="#events" class="text-white hover:text-primary transition">新聞</a>
-          <a href="#influencers" class="text-white hover:text-primary transition">合作藝人</a>
-          <a href="#services" class="text-white hover:text-primary transition">服務項目</a>
-          <a href="#contact" class="text-white hover:text-primary transition">聯絡我們</a>
+          <a href="/#events" class="text-white hover:text-primary transition">新聞</a>
+          <a href="/#influencers" class="text-white hover:text-primary transition">合作藝人</a>
+          <a href="/#services" class="text-white hover:text-primary transition">服務項目</a>
+          <a href="/#contact" class="text-white hover:text-primary transition">聯絡我們</a>
         </div>
         <div class="md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white">

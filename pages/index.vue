@@ -80,26 +80,33 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center" v-for="i of 4">
-          <img src="/pages/motherofd.jpeg" alt="Influencer 1"
+        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center cursor-pointer"
+          v-for="influencer of influencerList" @click="() => {
+            navigateTo(`/influencers/`)
+          }">
+          <img :src="influencer.images[0]" :alt="influencer.name"
             class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-primary" />
-          <h3 class="text-lg font-bold mb-1">丹妮莉絲·坦格利安</h3>
-          <p class="text-primary mb-3">不焚者、彌林女王、安達爾人和先民的女王、七國統治者與全境守護者、草原上的卡麗熙、打碎鐐銬者以及龍之母</p>
-          <p class="text-gray-400 text-sm mb-4">500K+ Followers</p>
+          <h3 class="text-lg font-bold mb-1">{{ influencer.name }}</h3>
+          <p class="text-primary mb-3">{{ influencer.description }}</p>
           <div class="flex justify-center space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition">
+            <a v-if="influencer.fb" :href="influencer.fb" target="_blank"
+              class="text-gray-400 hover:text-primary transition">
               <Icon name="mdi:facebook" class="h-5 w-5" />
             </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition">
+            <a v-if="influencer.ig" :href="influencer.ig" target="_blank"
+              class="text-gray-400 hover:text-primary transition">
               <icon name="mdi:instagram" class="h-5 w-5" />
             </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition">
+            <a v-if="influencer.youtube" :href="influencer.youtube" target="_blank"
+              class="text-gray-400 hover:text-primary transition">
               <icon name="mdi:youtube" class="h-5 w-5" />
             </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition">
+            <a v-if="influencer.twitch" :href="influencer.twitch" target="_blank"
+              class="text-gray-400 hover:text-primary transition">
               <icon name="mdi:twitch" class="h-5 w-5" />
             </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition">
+            <a v-if="influencer.x" :href="influencer.x" target="_blank"
+              class="text-gray-400 hover:text-primary transition">
               <icon name="pajamas:twitter" class="h-5 w-5" />
             </a>
           </div>
@@ -201,6 +208,7 @@ import { defineComponent, onMounted, ref, watch } from "vue";
 import { useGCCClient } from "#imports";
 import type { News } from "~/types/news";
 import { PageQuery } from "../types/clients";
+import type { Influencer } from "~/types/influencer";
 
 
 export default defineComponent({
@@ -220,19 +228,30 @@ export default defineComponent({
         newsPageQuery.total = resp.count
       });
     }
+    const influencerList = ref<Influencer[]>([])
+    const influencerPageQuery = reactive<PageQuery>(PageQuery.of({}))
+    const fetchInfluencer = () => {
+      client.getInfluencerList(influencerPageQuery.page).then((resp) => {
+        influencerList.value = resp.data
+        influencerPageQuery.total = resp.count
+      });
+    }
     onMounted(() => {
       fetchNews()
+      fetchInfluencer()
     })
 
     return buildDefineComponentSetup(
       {
         data: {},
-        methods: { fetchNews },
+        methods: { fetchNews, fetchInfluencer },
         stores: {},
       },
       {
         newsList,
-        newsPageQuery
+        newsPageQuery,
+        influencerList,
+        influencerPageQuery,
       }
     );
   },
