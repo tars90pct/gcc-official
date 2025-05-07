@@ -5,14 +5,13 @@
       <div class="container mx-auto flex justify-between items-center">
         <a href="/">
           <div class="flex items-center space-x-2 cursor-pointer">
-            <img src="/pages/logotext_y.gif" alt="Event" class="rounded-lg shadow-xl max-h-8" />
+            <img src="/pages/logo01.png" alt="Event" class="rounded-lg shadow-xl max-h-8" />
           </div>
         </a>
         <div class="hidden md:flex space-x-8">
           <a href="/#events" class="text-white hover:text-primary transition">新聞</a>
           <a href="/#influencers" class="text-white hover:text-primary transition">合作藝人</a>
           <a href="/#services" class="text-white hover:text-primary transition">服務項目</a>
-          <a href="/#contact" class="text-white hover:text-primary transition">聯絡我們</a>
         </div>
         <div class="md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white">
@@ -45,19 +44,15 @@
               看見好文化，發揮好創意
             </p>
             <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-primary transition">
+              <a href="https://www.facebook.com/goodcc.tw" target="_blank"
+                class="text-gray-400 hover:text-primary transition">
                 <Icon name="mdi:facebook" class="h-5 w-5" />
               </a>
-              <a href="#" class="text-gray-400 hover:text-primary transition">
+              <a href="https://www.instagram.com/goodcc_tw/" target="_blank"
+                class="text-gray-400 hover:text-primary transition">
                 <icon name="mdi:instagram" class="h-5 w-5" />
               </a>
-              <a href="#" class="text-gray-400 hover:text-primary transition">
-                <icon name="mdi:youtube" class="h-5 w-5" />
-              </a>
-              <a href="#" class="text-gray-400 hover:text-primary transition">
-                <icon name="mdi:twitch" class="h-5 w-5" />
-              </a>
-              <a href="#" class="text-gray-400 hover:text-primary transition">
+              <a href="https://x.com/goodcc_tw" target="_blank" class="text-gray-400 hover:text-primary transition">
                 <icon name="pajamas:twitter" class="h-5 w-5" />
               </a>
             </div>
