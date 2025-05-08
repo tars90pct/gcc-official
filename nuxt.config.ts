@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
   app: {
     buildAssetsDir: "assets",
+    head: {
+      title: "古德文創",
+    },
   },
   nitro: {
     output: {

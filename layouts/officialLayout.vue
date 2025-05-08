@@ -12,6 +12,8 @@
           <a href="/#events" class="text-white hover:text-primary transition">新聞</a>
           <a href="/#influencers" class="text-white hover:text-primary transition">合作藝人</a>
           <a href="/#services" class="text-white hover:text-primary transition">服務項目</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMLcGMFcf2hCL5_C4zt0Oev0gZK5t-e8ABSQBXhZVG9M27Q/viewform?usp=send_form"
+            target="_blank" class="text-white hover:text-primary transition">聯絡我們</a>
         </div>
         <div class="md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white">
