@@ -3,8 +3,7 @@
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">看見好文化，發揮好創意
-          </h1>
+          <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">看見好文化，發揮好創意</h1>
           <p class="text-xl text-gray-300 mb-8">
             文創無界限，營造跨界共利生態圈，攜手古德文創共創多贏未來！
           </p>
