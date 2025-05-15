@@ -60,9 +60,14 @@ export default defineComponent({
     const client = useGCCClient()
     const news = ref<News>(News.of({}))
     const openCardGallery = ref<boolean>(false)
+    let linkRegex = /\$A\{([^}]+)\}/g;
+
     const formattedArticle = computed(() => {
       // Split by double newlines to identify paragraphs
-      const paragraphs = news.value.description.split(/\n+/);
+      const description = news.value.description.replace(linkRegex, (_: any, content: string) => {
+        return `<a class="font-semibold text-blue-500" href="${content}">${content}</a>`;
+      });
+      const paragraphs = description.split(/\n+/);
       // Convert paragraphs to HTML
       return paragraphs
         .map(paragraph => {
