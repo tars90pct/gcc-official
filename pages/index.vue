@@ -7,16 +7,6 @@
           <p class="text-xl text-gray-300 mb-8">
             文創無界限，營造跨界共利生態圈，攜手古德文創共創多贏未來！
           </p>
-          <!-- <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="#contact"
-              class="bg-primary hover:bg-[#e6ca4c] text-black font-medium py-3 px-6 rounded-lg transition text-center">
-              聯絡我們
-            </a>
-            <a href="#services"
-              class="border border-primary text-primary hover:bg-primary hover:text-black font-medium py-3 px-6 rounded-lg transition text-center">
-              服務內容
-            </a>
-          </div> -->
         </div>
         <div class="md:w-1/2 flex items-center justify-center">
           <img src="/pages/logotext_y.gif" alt="Event" class="rounded-lg shadow-xl max-w-[400px] h-auto" />
@@ -38,7 +28,7 @@
         <div @click="() => {
           navigateTo(`/news/${news.id}`)
         }"
-          class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-[480px] max-h-[480px] min-h-[480px] cursor-pointer"
+          class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-[520px] max-h-[520px] min-h-[520px] cursor-pointer"
           v-for="news of newsList" :key="news.id">
           <img :src="news.images?.[0] || '/gcc-official/pages/logo.png'" :alt="news.title"
             class="w-full h-48 object-cover" />
@@ -78,15 +68,22 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center cursor-pointer"
+      <div class="flex overflow-x-auto gap-6 pb-4">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-md text-center cursor-pointer min-w-80"
           v-for="influencer of influencerList" @click="() => {
             navigateTo(`/influencers/`)
           }">
           <img :src="influencer.images[0]" :alt="influencer.name"
             class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-primary" />
           <h3 class="text-lg font-bold mb-1">{{ influencer.name }}</h3>
-          <p class="text-primary mb-3">{{ influencer.description }}</p>
+
+          <div class="min-h-40 max-h-40 overflow-y-auto">
+            <template v-if="influencer.description">
+              <p v-for="(desc, index) in influencer.description.split('\n')" :key="index" class="text-primary">
+                {{ desc }}
+              </p>
+            </template>
+          </div>
           <div class="flex justify-center space-x-3">
             <a v-if="influencer.fb" :href="influencer.fb" target="_blank"
               class="text-gray-400 hover:text-primary transition">
@@ -230,9 +227,8 @@ export default defineComponent({
     const influencerList = ref<Influencer[]>([])
     const influencerPageQuery = reactive<PageQuery>(PageQuery.of({}))
     const fetchInfluencer = () => {
-      client.getInfluencerList(influencerPageQuery.page).then((resp) => {
+      client.getInfluencers().then((resp) => {
         influencerList.value = resp.data
-        influencerPageQuery.total = resp.count
       });
     }
     onMounted(() => {
