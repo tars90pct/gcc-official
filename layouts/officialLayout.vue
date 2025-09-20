@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white font-sans">
+  <div class="min-h-screen bg-white font-sans overflow-hidden">
     <!-- Navigation -->
     <nav class="bg-black px-4 py-4 fixed w-full z-10">
       <div class="container mx-auto flex justify-between items-center">
